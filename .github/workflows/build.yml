@@ -1,0 +1,23 @@
+name: "Build"
+
+on: workflow_dispatch
+
+env:
+  DIFFUTILS_VERSION: 3.6
+  MSYS2_HOME: C:/msys64
+  MSYSTEM: MINGW64
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Run build
+      run: perl build.pl
+    - name: Upload artiacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: diffutils-${{ env.DIFFUTILS_VERSION }}
+        path: out/diffutils-${{ env.DIFFUTILS_VERSION }}
+        retention-days: 1

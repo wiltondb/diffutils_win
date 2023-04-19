@@ -1,0 +1,21 @@
+{
+  "tarball": {
+    "url": "http://ftp.gnu.org/gnu/diffutils/diffutils-3.6.tar.xz",
+    "localPath": null,
+    "sha256": "d621e8bdd4b573918c8145f7ae61817d1be9deb4c8d2328a65cea8e11d783bd6"
+  },
+  "patches": [
+    {
+      "patch": "win_use_raise_rather_than_kill.patch",
+      "file": "src/sdiff.c"
+    },
+    {
+      "patch": "msvc_invalid_parameter_handler.patch",
+      "file": "lib/config.hin"
+    },
+    {
+      "patch": "win_signal_handling.patch",
+      "file": "src/util.c"
+    }
+  ]
+}
